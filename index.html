@@ -1,15 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My First Website</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise CRM | Landing Page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <h1>Welcome to My Static Website</h1>
-    <p>This website was created by a beginner!</p>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Enterprise<span>CRM</span></div>
+        <ul class="menu">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><button class="btn-primary">Get Started</button></li>
+        </ul>
+    </nav>
 
-    <button onclick="showMessage()">Click Me</button>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Smart CRM for Modern Enterprises</h1>
+        <p>Manage sales, automate workflows, track customer insights, and grow your business with our AI-powered CRM platform.</p>
+        <button class="btn-secondary">Request Demo</button>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2>Powerful CRM Features</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature-box">
+                <h3>Lead Management</h3>
+                <p>Track, prioritize, and manage leads with intelligent scoring to boost conversions.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Sales Automation</h3>
+                <p>Automate repetitive tasks, reminders, and follow-ups to increase productivity.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Analytics Dashboard</h3>
+                <p>Visualize business insights and track performance with real-time analytics.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Counter Section -->
+    <section class="counters">
+        <div class="counter-box">
+            <span id="clients" class="counter">0</span>
+            <p>Active Clients</p>
+        </div>
+
+        <div class="counter-box">
+            <span id="leads" class="counter">0</span>
+            <p>Leads Managed</p>
+        </div>
+
+        <div class="counter-box">
+            <span id="growth" class="counter">0</span>
+            <p>Avg Business Growth (%)</p>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Enter your name">
+            <input type="email" id="email" placeholder="Enter your email">
+            <textarea id="message" placeholder="Your message"></textarea>
+            <button type="submit" class="btn-primary">Submit</button>
+        </form>
+
+        <p id="formStatus"></p>
+    </section>
 
     <script src="script.js"></script>
 </body>
