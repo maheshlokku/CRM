@@ -1,181 +1,84 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Login Page</title>
+import React from "react";
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background: #f7f7f7;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
+export default function Login() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
+      <div className="w-full max-w-md bg-white shadow-lg rounded-xl p-8">
+        
+        {/* Title */}
+        <h2 className="text-2xl font-semibold text-center mb-6">Login</h2>
 
-    .container {
-        width: 400px;
-        background: #fff;
-        padding: 30px;
-        border-radius: 8px;
-        box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-    }
+        {/* Email */}
+        <label className="block mb-2 font-medium">Email</label>
+        <input
+          type="email"
+          className="w-full mb-4 p-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Enter your email"
+        />
 
-    h2 {
-        text-align: left;
-        margin-bottom: 20px;
-        font-size: 28px;
-    }
+        {/* Password */}
+        <label className="block mb-2 font-medium">Password</label>
+        <input
+          type="password"
+          className="w-full mb-3 p-2 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Enter your password"
+        />
 
-    label {
-        font-size: 14px;
-        margin-bottom: 5px;
-        display: block;
-    }
+        {/* Keep me signed in + Forgot password */}
+        <div className="flex justify-between items-center mb-4">
+          <label className="flex items-center space-x-2">
+            <input type="checkbox" className="w-4 h-4" />
+            <span>Keep me signed in</span>
+          </label>
+          <a href="#" className="text-blue-600 text-sm hover:underline">
+            Forgot Password?
+          </a>
+        </div>
 
-    input[type="email"],
-    input[type="password"] {
-        width: 100%;
-        padding: 12px;
-        margin-bottom: 15px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 15px;
-    }
+        {/* Login button */}
+        <button className="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition">
+          Login
+        </button>
 
-    .row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        {/* OR */}
+        <div className="flex items-center my-4">
+          <div className="flex-1 h-px bg-gray-300"></div>
+          <p className="px-2 text-gray-500">or</p>
+          <div className="flex-1 h-px bg-gray-300"></div>
+        </div>
 
-    .row a {
-        text-decoration: none;
-        color: #6a5acd;
-        font-size: 14px;
-    }
+        {/* Login with OTP */}
+        <button className="w-full border py-2 rounded-lg hover:bg-gray-100 transition">
+          Login with OTP
+        </button>
 
-    .btn {
-        width: 100%;
-        padding: 12px;
-        background: linear-gradient(to right, #9c8df5, #6c88f0);
-        color: white;
-        border: none;
-        font-size: 16px;
-        border-radius: 6px;
-        cursor: pointer;
-        margin-top: 10px;
-    }
+        {/* OR */}
+        <div className="flex items-center my-4">
+          <div className="flex-1 h-px bg-gray-300"></div>
+          <p className="px-2 text-gray-500">or</p>
+          <div className="flex-1 h-px bg-gray-300"></div>
+        </div>
 
-    .btn:hover {
-        opacity: 0.9;
-    }
+        {/* Social Login */}
+        <div className="grid grid-cols-3 gap-3 mb-4">
+          <button className="border py-2 rounded-lg hover:bg-gray-100">Google</button>
+          <button className="border py-2 rounded-lg hover:bg-gray-100">LinkedIn</button>
+          <button className="border py-2 rounded-lg hover:bg-gray-100">Facebook</button>
+        </div>
 
-    .center-text {
-        text-align: center;
-        margin: 15px 0;
-        color: #888;
-    }
+        {/* Terms */}
+        <p className="text-xs text-center text-gray-600 mb-4">
+          By syncing your social media account, you agree to Shine’s terms and conditions.
+        </p>
 
-    .otp-btn {
-        width: 100%;
-        background: #f2f2f2;
-        padding: 12px;
-        border-radius: 6px;
-        text-align: center;
-        cursor: pointer;
-        font-size: 16px;
-        border: 1px solid #ddd;
-    }
-
-    .social-login {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 15px;
-    }
-
-    .social-btn {
-        width: 32%;
-        padding: 10px;
-        border-radius: 6px;
-        text-align: center;
-        cursor: pointer;
-        font-size: 14px;
-        border: 1px solid #ccc;
-        background: #fff;
-    }
-
-    .social-btn img {
-        width: 20px;
-        vertical-align: middle;
-        margin-right: 6px;
-    }
-
-    .register {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    .register a {
-        text-decoration: none;
-        color: #6a5acd;
-        font-weight: bold;
-    }
-</style>
-</head>
-
-<body>
-
-<div class="container">
-    <h2>Login</h2>
-
-    <label>Email</label>
-    <input type="email" id="email" placeholder="Enter your email" />
-
-    <label>Password</label>
-    <input type="password" id="password" placeholder="Enter your password" />
-
-    <div class="row">
-        <label>
-            <input type="checkbox" id="keepSignedIn" /> Keep me signed in
-        </label>
-        <a href="#">Forgot Password</a>
+        {/* Register */}
+        <p className="text-center text-sm">
+          Don't have an account?{" "}
+          <a href="#" className="text-blue-600 font-medium hover:underline">
+            Register Now
+          </a>
+        </p>
+      </div>
     </div>
-
-    <button class="btn" onclick="login()">Login</button>
-
-    <div class="center-text">or</div>
-
-    <div class="otp-btn">Login with OTP</div>
-
-    <div class="center-text">or</div>
-
-    <div class="social-login">
-        <div class="social-btn"><img src="https://img.icons8.com/color/48/google-logo.png">Google</div>
-        <div class="social-btn"><img src="https://img.icons8.com/fluency/48/linkedin.png">LinkedIn</div>
-        <div class="social-btn"><img src="https://img.icons8.com/color/48/facebook-new.png">Facebook</div>
-    </div>
-
-    <div class="register">
-        Don't have Shine account? <a href="#">Register Now</a>
-    </div>
-</div>
-
-<script>
-    function login() {
-        const email = document.getElementById("email").value;
-        const password = document.getElementById("password").value;
-
-        if (!email || !password) {
-            alert("Please enter email and password!");
-            return;
-        }
-
-        alert("Login button clicked!\nEmail: " + email);
-    }
-</script>
-
-</body>
-</html>
+  );
+}
