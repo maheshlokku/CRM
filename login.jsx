@@ -58,7 +58,7 @@
     }
 
     .btn {
-        width: 100%;
+        width: 200%;
         padding: 12px;
         background: linear-gradient(to right, #9c8df5, #6c88f0);
         color: white;
