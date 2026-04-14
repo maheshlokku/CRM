@@ -1,2 +1,0 @@
-# CRM
-customer relation managment
